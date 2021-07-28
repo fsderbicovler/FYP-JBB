@@ -6,5 +6,6 @@ enum MenuState {
   depositscreen,
   deposit,
   withdraw,
-  bankcheckout
+  bankcheckout,
+  depositconfirm
 }

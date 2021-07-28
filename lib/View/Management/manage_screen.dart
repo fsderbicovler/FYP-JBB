@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:jbb/Model/plastic_deposit.dart';
 import 'package:jbb/View/Components/bottomnavbar.dart';
 import 'package:jbb/View/Management/components/manage_body.dart';
 import 'package:jbb/constants.dart';
@@ -31,7 +30,7 @@ class ManagementScreen extends StatelessWidget {
                 fontWeight: FontWeight.bold),
           ),
           Text(
-            "${plasticdeposit.length} deposits",
+            "deposits",
             style: TextStyle(
               color: primarycolour,
               fontSize: 11,

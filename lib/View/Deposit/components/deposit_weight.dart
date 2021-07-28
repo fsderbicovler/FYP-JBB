@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:jbb/View/Deposit/components/weight_input.dart';
 import 'package:jbb/constants.dart';
 
 class DepositWeight extends StatelessWidget {
@@ -35,26 +34,66 @@ class DepositWeight extends StatelessWidget {
                 TextSpan(
                   text: "Please enter the weight of plastic bottle\n",
                   style: TextStyle(
-                      fontSize: 13,
-                      fontStyle: FontStyle.italic,
-                      decoration: TextDecoration.none),
+                    fontSize: 13,
+                    fontStyle: FontStyle.italic,
+                  ),
                 ),
-                // TextSpan(
-                //   text: "[Field in BOX]",
-                //   style:
-                //       TextStyle(fontSize: 18, decoration: TextDecoration.none),
-                // ),
               ],
             ),
           ),
-          WeightInput(
-            quantity: "Kg",
-          ),
-          WeightInput(
-            quantity: "gr",
-          ),
+          WeightInput(),
         ],
       ),
     );
+  }
+}
+
+class WeightInput extends StatefulWidget {
+  @override
+  _WeightInputState createState() => _WeightInputState();
+}
+
+class _WeightInputState extends State<WeightInput> {
+  int _weight;
+  // double earning = 20;
+  final TextEditingController weightinput = TextEditingController();
+
+  @override
+  void dispose() {
+    weightinput.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+        child: Row(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        SizedBox(
+          height: 83,
+          width: 200,
+          child: Container(
+            padding: EdgeInsets.symmetric(vertical: 10),
+            child: TextFormField(
+              controller: weightinput,
+              decoration: const InputDecoration(
+                icon: Icon(
+                  Icons.person,
+                  color: darkgreen,
+                ),
+                hintText: "Weight",
+              ),
+            ),
+          ),
+        ),
+        SizedBox(
+          width: 10,
+        ),
+        Text("grams ", style: TextStyle(fontSize: 18, color: darkgreen)),
+        // Text(weighinput.text, style: TextStyle(fontSize: 18, color: darkgreen)),
+      ],
+    ));
   }
 }

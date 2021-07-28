@@ -7,7 +7,7 @@ class DepositPlastictype extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      height: 250,
+      height: 150,
       margin: EdgeInsets.all(8.0),
       padding: EdgeInsets.symmetric(horizontal: 20.0, vertical: 20.0),
       decoration: BoxDecoration(
@@ -34,9 +34,9 @@ class DepositPlastictype extends StatelessWidget {
                   decoration: TextDecoration.none),
             ),
           ])),
-          Plastictype(plastictype: "PTE or PETE", plasticcost: 0),
-          Plastictype(plastictype: "PVC", plasticcost: 10.0),
-          Plastictype(plastictype: "PP ", plasticcost: null),
+          Plastictype(),
+          // Plastictype(plastictype: "PVC", plasticcost: 10.0),
+          // Plastictype(plastictype: "PP ", plasticcost: null),
         ],
       ),
     );
@@ -44,28 +44,54 @@ class DepositPlastictype extends StatelessWidget {
 }
 
 class Plastictype extends StatefulWidget {
-  String plastictype;
-  double plasticcost;
-  Plastictype({
-    Key key,
-    @required this.plastictype,
-    @required this.plasticcost,
-  }) : super(key: key);
+  String valuechoose;
   @override
   _PlastictypeState createState() => _PlastictypeState();
 }
 
 class _PlastictypeState extends State<Plastictype> {
+  String valuechoose;
+  double each;
+
+  List listitem = ["PP", "PET", "HDPE"];
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Radio(value: 0, groupValue: null, onChanged: null),
-        Text(
-          widget.plastictype,
-          style: TextStyle(fontSize: 13, color: primarycolour),
-        )
-      ],
+    return Center(
+      child: DropdownButton(
+          hint: Text(
+            "Select plastic types",
+            style: TextStyle(
+                color: darkgreen, fontStyle: FontStyle.italic, fontSize: 13),
+          ),
+          dropdownColor: whiteorange,
+          icon: Icon(
+            Icons.label_important_rounded,
+            color: darkgreen,
+          ),
+          isExpanded: true,
+          style: TextStyle(color: primarycolour, fontSize: 15),
+          value: valuechoose,
+          onChanged: (newvalue) {
+            setState(() {
+              valuechoose = newvalue;
+              if (valuechoose == "PP") {
+                each = 0.1;
+              } else if (valuechoose == "PET") {
+                each = 0.2;
+              } else {
+                each = 0.3;
+              }
+            });
+          },
+          items: listitem.map((valueitem) {
+            return DropdownMenuItem(
+              value: valueitem,
+              child: Text(
+                valueitem,
+                style: TextStyle(color: darkgreen),
+              ),
+            );
+          }).toList()),
     );
   }
 }

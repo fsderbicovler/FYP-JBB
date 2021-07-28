@@ -30,12 +30,6 @@ class DepositScreen extends StatelessWidget {
                 fontSize: 25,
                 fontWeight: FontWeight.bold),
           ),
-          // Text(
-          //   "${collectorlist.length} Collector(s)",
-          //   style: TextStyle(
-          //     color: HexColor("#c85320"),
-          //     fontSize: 11,
-          //   ),
         ],
       ),
     );

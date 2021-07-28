@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:jbb/Model/collector_location.dart';
 import 'package:jbb/View/Deposit/components/location_option.dart';
 import 'package:jbb/constants.dart';
 
@@ -15,7 +14,7 @@ class DepositLocation extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      height: 300, //adjust height
+      height: 180, //adjust height
       margin: EdgeInsets.all(8.0),
       padding: EdgeInsets.symmetric(
         horizontal: 20.0,
@@ -47,46 +46,10 @@ class DepositLocation extends StatelessWidget {
                       fontStyle: FontStyle.italic,
                       decoration: TextDecoration.none),
                 ),
-                // TextSpan(
-                //   text: "[DROPDOWN BOX]",
-                //   style: TextStyle(
-                //       fontSize: 18,
-                //       fontStyle: FontStyle.italic,
-                //       decoration: TextDecoration.none),
-                // ),
               ],
             ),
           ),
-          // Container(
-          //   decoration: BoxDecoration(
-          //     border: Border.all(color: Colors.orange),
-          //   ),
-          //   child: ExpandablePanel(
-          //       header: Row(
-          //         mainAxisAlignment: MainAxisAlignment.start,
-          //         children: [
-          //           Radio(value: 0, groupValue: null, onChanged: null),
-          //           Text(
-          //             "Location A",
-          //             style: TextStyle(
-          //                 fontSize: 12,
-          //                 fontWeight: FontWeight.bold,
-          //                 color: HexColor("c85320")),
-          //           ),
-          //         ],
-          //       ),
-          //       expanded: Text("detailed address")),
-          // ),
-          LocationOption(
-            locationlist: locationlist[1],
-          ),
-          LocationOption(
-            locationlist: locationlist[3],
-          ),
-          LocationOption(
-            locationlist: locationlist[2],
-          )
-          // DropdownButton(items: null, onChanged: null)
+          LocationOption(),
         ],
       ),
     );

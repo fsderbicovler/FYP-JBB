@@ -1,5 +1,7 @@
 import 'package:flutter/widgets.dart';
+import 'package:jbb/View/Deposit/deposit_confirm.dart';
 import 'package:jbb/View/Deposit/deposit_screen.dart';
+import 'package:jbb/View/Depositt/depositscreen.dart';
 import 'package:jbb/View/Find%20Collector/find_collector_Screen.dart';
 import 'package:jbb/View/Home/home_screen.dart';
 import 'package:jbb/View/Login/jbb_login.dart';
@@ -22,4 +24,5 @@ final Map<String, WidgetBuilder> routes = {
   FindCollector.routeName: (context) => FindCollector(),
   ManagementScreen.routeName: (context) => ManagementScreen(),
   ProfileScreen.routeName: (context) => ProfileScreen(),
+  DepositScreenn.routeName: (context) => DepositScreenn(),
 };

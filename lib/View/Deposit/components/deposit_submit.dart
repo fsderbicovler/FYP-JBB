@@ -1,13 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:jbb/View/Deposit/components/deposit_body.dart';
+import 'package:jbb/View/Deposit/components/deposit_weight.dart';
 import 'package:jbb/constants.dart';
 
-class DepositSubmit extends StatelessWidget {
+class DepositSubmit extends StatefulWidget {
+  @override
+  _DepositSubmitState createState() => _DepositSubmitState();
+}
+
+class _DepositSubmitState extends State<DepositSubmit> {
   @override
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
       height: 200, //adjust height
-      margin: EdgeInsets.all(10.0),
+      margin: EdgeInsets.all(20.0),
       padding: EdgeInsets.symmetric(
         horizontal: 20.0,
         vertical: 15.0,
@@ -33,14 +40,14 @@ class DepositSubmit extends StatelessWidget {
                       decoration: TextDecoration.none),
                 ),
                 TextSpan(
-                  text: "plastic type : PTE \n",
+                  text: "plastic type : {pt.valuechoose}\n",
                   style: TextStyle(
                       fontSize: 14,
                       // fontStyle: FontStyle.italic,
                       decoration: TextDecoration.none),
                 ),
                 TextSpan(
-                  text: "weight : 10kg \n",
+                  text: "weight {widget.dbn.wi} \n",
                   style:
                       TextStyle(fontSize: 14, decoration: TextDecoration.none),
                 ),
@@ -83,12 +90,12 @@ class DepositButton extends StatelessWidget {
         minWidth: 100.0,
         // height: 10,
         child: Text(
-          "Deposit",
+          "Deposit Now",
           textAlign: TextAlign.center, //text will be at the centre
           style: TextStyle(color: Colors.white, fontSize: 15.0),
         ),
         onPressed: () {
-          // Navigator.pushNamed(context, HomeScreen.routeName);
+          // Navigator.pushNamed(context, DepositScreen.routeName);
         },
       ),
     );

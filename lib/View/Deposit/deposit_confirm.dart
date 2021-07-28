@@ -1,19 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:jbb/Model/locationdeposit.dart';
 import 'package:jbb/View/Components/bottomnavbar.dart';
+import 'package:jbb/View/Deposit/components/deposit_submit.dart';
 import 'package:jbb/constants.dart';
 import 'package:jbb/enums.dart';
 
-import 'components/collector_list_body.dart';
-
-class FindCollector extends StatelessWidget {
-  static String routeName = "/findcollector";
+class DepositConfirmScreen extends StatelessWidget {
+  static String routeName = "/depositconfirm";
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: buildAppBar(context),
-      body: CollectorListBody(),
+      body: DepositSubmit(),
       bottomNavigationBar: BottomNavBar(
         selectedMenu: MenuState.home,
       ),
@@ -26,18 +24,11 @@ class FindCollector extends StatelessWidget {
       title: Column(
         children: [
           Text(
-            "Deposit Location",
+            "Confirm your Deposit",
             style: TextStyle(
                 color: primarycolour,
                 fontSize: 20,
                 fontWeight: FontWeight.bold),
-          ),
-          Text(
-            "{locationlist.length} Location(s)",
-            style: TextStyle(
-              color: primarycolour,
-              fontSize: 11,
-            ),
           ),
         ],
       ),
