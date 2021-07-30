@@ -1,23 +1,48 @@
 import 'package:flutter/material.dart';
+import 'package:jbb/Controller/userapi.dart';
+import 'package:jbb/Model/users.dart';
 import 'package:jbb/View/Home/home_screen.dart';
 import 'package:jbb/View/Registrations/registration_screen.dart';
 import 'package:jbb/constants.dart';
 
-class LoginScreen extends StatelessWidget {
+class LoginScreen extends StatefulWidget {
+  final UserApi api = UserApi();
   static String routeName = "/loginscreen";
+
+  @override
+  _LoginScreenState createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
+  Users users;
+  final TextEditingController _email = TextEditingController();
+  final TextEditingController _password = TextEditingController();
+
+  @override
+  void dispose() {
+    _email.dispose();
+    _password.dispose();
+    super.dispose();
+  }
+
+  void initstate() async {
+    super.initState();
+    widget.api.getuser(_email.text).then((data) {
+      setState(() {
+        users = data;
+      });
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-    final emailfield = TextField(
+    final emailfield = TextFormField(
+      controller: _email,
       style: TextStyle(color: Colors.blue),
       decoration: InputDecoration(
-        suffixIcon: IconButton(
-          onPressed: () {},
-          icon: Icon(Icons.access_alarm, color: darkgreen),
-        ),
+        suffixIcon: Icon(Icons.email_rounded, color: darkgreen),
         filled: false,
         contentPadding: EdgeInsets.fromLTRB(15, 20, 15, 20),
-        // hintText: "Email Address",
-        // hintStyle: TextStyle(color: Colors.orange),
         labelText: "Email Address",
         labelStyle: TextStyle(
             color: darkgreen, fontSize: 17.0, fontStyle: FontStyle.italic),
@@ -27,35 +52,53 @@ class LoginScreen extends StatelessWidget {
       ),
     );
 
-    final passfield = TextField(
+    final passfield = TextFormField(
+      controller: _password,
       obscureText: true,
       style: TextStyle(color: Colors.blue),
       decoration: InputDecoration(
-        filled: false,
+        suffixIcon: Icon(
+          Icons.lock_rounded,
+          color: darkgreen,
+        ),
         contentPadding: EdgeInsets.fromLTRB(15, 20, 15, 20),
         labelText: "Password",
         labelStyle: TextStyle(
-            color: primarycolour, fontSize: 18.0, fontStyle: FontStyle.italic),
+            color: darkgreen, fontSize: 18.0, fontStyle: FontStyle.italic),
         border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(5.0),
-            borderSide: BorderSide(color: Colors.orange)),
+            borderSide: BorderSide(color: darkgreen)),
       ),
     );
 
     final loginbutton = Material(
-      elevation: 2.0,
-      borderRadius: BorderRadius.circular(3.0),
+      borderRadius: BorderRadius.circular(5.0),
       color: primarycolour,
       child: MaterialButton(
         padding: EdgeInsets.fromLTRB(10, 20, 10, 20),
-        minWidth: 100.0,
+        minWidth: 200.0,
+        // height: 10,
         child: Text(
-          "L O G I N",
+          "Login !",
           textAlign: TextAlign.center, //text will be at the centre
           style: TextStyle(color: Colors.white, fontSize: 15.0),
         ),
         onPressed: () {
-          Navigator.pushNamed(context, HomeScreen.routeName);
+          if (_email.text == user) {
+            Navigator.pushNamed(context, HomeScreen.routeName);
+          } else {
+            Navigator.pushNamed(context, RpersonalScreen.routeName);
+          }
+          // _addDeposit();
+          // showDialog(
+          //     context: context,
+          //     builder: (context) {
+          //       return AlertDialog(
+          //         content: Text(
+          //             "INPUT ${_inputlocation.text} and ${_inputtype.text}  ${_inputqty.text} grams"),
+          //       );
+          //     });
+          //
         },
       ),
     );

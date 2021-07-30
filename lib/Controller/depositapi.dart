@@ -14,13 +14,15 @@ class DepositApi {
   }
 
   //POST
-  Future<Plasticdeposit> addDeposit(
-      String dep_id, String location, String plastic, int quantity) async {
+  Future<Plasticdeposit> addDeposit(String dep_id, String location,
+      String plastic, int quantity, double credit, String status) async {
     final response = await _dio.post('', data: {
       'dep_id': dep_id,
       'location': location,
       'plastic': plastic,
-      'quantity': quantity
+      'quantity': quantity,
+      'credit': credit,
+      'status': status
     });
     return Plasticdeposit.fromJson(response.data);
   }

@@ -1,18 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:jbb/Model/users_data.dart';
+import 'package:jbb/Model/profile.dart';
+import 'package:jbb/Model/users.dart';
 import 'package:jbb/constants.dart';
 
 class ProfileMini extends StatelessWidget {
-  UserData userlist;
-  ProfileMini({
-    Key key,
-    @required this.userlist,
-  }) : super(key: key);
+  Profile pr;
+
+  ProfileMini({Key key, this.pr}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      height: 150,
+      height: 200,
       margin: EdgeInsets.all(10),
       padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
       decoration: BoxDecoration(
@@ -23,26 +22,32 @@ class ProfileMini extends StatelessWidget {
           ),
           children: [
             TextSpan(
-              text: "${userlist.user_name}\n",
+              text: "${pr.fullname}\n",
               style: TextStyle(
-                fontSize: 20,
+                fontSize: 23,
                 fontWeight: FontWeight.bold,
               ),
             ),
             TextSpan(
                 text: "Personal Collector\n",
                 style: TextStyle(
-                  fontSize: 16,
+                  fontSize: 17,
                   fontStyle: FontStyle.italic,
                 )),
             TextSpan(
-                text: "${userlist.user_email}\n",
+                text: "${pr.phonenumber}\n\n",
                 style: TextStyle(
-                  fontSize: 15,
+                  fontSize: 16,
                   // fontStyle: FontStyle.italic,
                 )),
             TextSpan(
-              text: "${userlist.address}",
+                text: "${pr.addresss} \n\n",
+                style: TextStyle(
+                  fontSize: 15,
+                  fontStyle: FontStyle.italic,
+                )),
+            TextSpan(
+              text: "Credits \t Rp. ${pr.credit}",
               style: TextStyle(
                 fontSize: 15,
                 fontWeight: FontWeight.bold,

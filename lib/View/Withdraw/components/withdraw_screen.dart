@@ -27,13 +27,13 @@ AppBar withdrawheader(BuildContext context) {
           style: TextStyle(
               color: primarycolour, fontSize: 20, fontWeight: FontWeight.bold),
         ),
-        Text(
-          "available 10000 credits",
-          style: TextStyle(
-            color: primarycolour,
-            fontSize: 13,
-          ),
-        ),
+        // Text(
+        //   "available 10000 credits",
+        //   style: TextStyle(
+        //     color: primarycolour,
+        //     fontSize: 13,
+        //   ),
+        // ),
       ],
     ),
   );

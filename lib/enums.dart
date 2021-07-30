@@ -7,5 +7,5 @@ enum MenuState {
   deposit,
   withdraw,
   bankcheckout,
-  depositconfirm
+  depositconfirm,
 }

@@ -12,3 +12,10 @@ const lightblue = Color(0xFFE1F5FE);
 
 //Green
 const darkgreen = Color(0xFF1B5E20);
+
+const inputstyle =
+    TextStyle(color: darkgreen, fontSize: 15.0, fontStyle: FontStyle.italic);
+
+//Dummy user
+
+const user = "farhansd";

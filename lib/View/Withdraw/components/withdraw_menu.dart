@@ -31,12 +31,12 @@ class WithdrawMenu extends StatelessWidget {
               Expanded(
                   child: Text(
                 bank,
-                style: TextStyle(color: primarycolour, fontSize: 18),
+                style: TextStyle(color: darkgreen, fontSize: 18),
               )),
               Icon(
                 Icons.arrow_forward_ios,
                 size: 15,
-                color: primarycolour,
+                color: darkgreen,
               ),
             ],
           )),

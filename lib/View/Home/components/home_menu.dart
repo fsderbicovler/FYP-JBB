@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:jbb/View/Deposit/deposit_screen.dart';
 import 'package:jbb/View/Depositt/depositscreen.dart';
 import 'package:jbb/View/Find%20Collector/find_collector_Screen.dart';
+import 'package:jbb/View/Withdraw/components/withdraw_check.dart';
 import 'package:jbb/View/Withdraw/components/withdraw_screen.dart';
 import 'package:jbb/constants.dart';
 

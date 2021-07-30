@@ -10,11 +10,35 @@ class ProfileScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: lightblue,
-      // appBar: AppBar(
-      //   title: Text("Profile"),
-      // ),
+      appBar: profileheader(context),
       body: ProfileBody(),
       bottomNavigationBar: BottomNavBar(selectedMenu: MenuState.profile),
     );
   }
+}
+
+AppBar profileheader(BuildContext context) {
+  return AppBar(
+    backgroundColor: lightblue,
+    automaticallyImplyLeading: false,
+    // actions: <Widget>[
+    //   IconButton(icon: const Icon(Icons.logout), onPressed: null)
+    // ],
+    title: Column(
+      children: [
+        Text(
+          "Profile ",
+          style: TextStyle(
+              color: primarycolour, fontSize: 25, fontWeight: FontWeight.bold),
+        ),
+        Text(
+          "Personal collector",
+          style: TextStyle(
+            color: primarycolour,
+            fontSize: 13,
+          ),
+        ),
+      ],
+    ),
+  );
 }

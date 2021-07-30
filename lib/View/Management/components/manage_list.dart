@@ -14,19 +14,28 @@ class ManageList extends StatelessWidget {
     return ListView(
       children: [
         ...plasticdeposit
-            .map<Widget>((plasticdeposit) => ListTile(
-                  leading: Icon(
-                    Icons.local_drink_rounded,
-                    color: primarycolour,
-                  ),
-                  tileColor: lightblue,
-                  title: Text(
-                    "${plasticdeposit.dep_id}  ${plasticdeposit.plastic} ",
-                    style: TextStyle(color: darkgreen, fontSize: 18),
-                  ),
-                  subtitle: Text(
-                    "deposited at ${plasticdeposit.location} ${plasticdeposit.quantity} grams",
-                    style: TextStyle(color: darkgreen, fontSize: 14),
+            .map<Widget>((plasticdeposit) => Card(
+                  child: ListTile(
+                    // trailing: IconButton(
+                    //   icon: Icon(
+                    //     Icons.delete_forever_rounded,
+                    //     color: Colors.redAccent,
+                    //     size: 25,
+                    //   ),
+                    //   onPressed: () {},
+                    // ),
+                    tileColor: whiteorange,
+                    title: Text(
+                      "Plastic ${plasticdeposit.plastic} earns Rp. ${plasticdeposit.credit}",
+                      style: TextStyle(color: darkgreen, fontSize: 16),
+                    ),
+                    subtitle: Text(
+                      "[${plasticdeposit.status}]${plasticdeposit.quantity}grams deposited at ${plasticdeposit.location} ",
+                      style: TextStyle(
+                          color: darkgreen,
+                          fontSize: 14,
+                          fontStyle: FontStyle.italic),
+                    ),
                   ),
                 ))
             .toList(),

@@ -24,7 +24,7 @@ AppBar checkoutheader(BuildContext context) {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          "Withdrawal",
+          "Withdrawal Confirmation",
           style: TextStyle(
               color: primarycolour, fontSize: 20, fontWeight: FontWeight.bold),
         ),

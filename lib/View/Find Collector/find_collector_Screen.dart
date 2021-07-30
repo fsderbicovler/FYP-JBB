@@ -33,7 +33,7 @@ class FindCollector extends StatelessWidget {
                 fontWeight: FontWeight.bold),
           ),
           Text(
-            "{locationlist.length} Location(s)",
+            "nearest Location(s)",
             style: TextStyle(
               color: primarycolour,
               fontSize: 11,

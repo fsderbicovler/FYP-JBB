@@ -1,20 +1,33 @@
 import 'package:flutter/material.dart';
-
-import 'package:jbb/Model/users_data.dart';
+import 'package:jbb/Controller/profileapi.dart';
+import 'package:jbb/Model/profile.dart';
 import 'package:jbb/constants.dart';
 
-class HomeBanner extends StatelessWidget {
-  UserData userlist;
+class HomeBanner extends StatefulWidget {
+  final ProfileApi profileapi = ProfileApi();
 
-  HomeBanner({
-    Key key,
-    @required this.userlist,
-  }) : super(key: key);
+  @override
+  _HomeBannerState createState() => _HomeBannerState();
+}
+
+class _HomeBannerState extends State<HomeBanner> {
+  Profile profile;
+
+  // @override
+  void initState() {
+    super.initState();
+    widget.profileapi.getprofile(user).then((data) {
+      setState(() {
+        profile = data;
+      });
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      height: 150, //adjust height
+      height: 180, //adjust height
       margin: EdgeInsets.all(10.0),
       padding: EdgeInsets.symmetric(
         horizontal: 20.0,
@@ -31,7 +44,7 @@ class HomeBanner extends StatelessWidget {
             TextSpan(
                 text: "Welcome Back, \n\n", style: TextStyle(fontSize: 18)),
             TextSpan(
-              text: "${userlist.user_name} \n",
+              text: "${profile.fullname} (${profile.username})\n",
               style: TextStyle(
                 fontSize: 22,
                 fontWeight: FontWeight.bold,
@@ -45,7 +58,7 @@ class HomeBanner extends StatelessWidget {
               ),
             ),
             TextSpan(
-              text: "\nAvailable credit: Rp. ${userlist.user_credit} ,-",
+              text: "\nAvailable credit\t\t Rp. ${profile.credit} ,-",
               style: TextStyle(
                 fontSize: 15,
                 fontWeight: FontWeight.bold,

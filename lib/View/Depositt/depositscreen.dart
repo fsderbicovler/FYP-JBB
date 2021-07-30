@@ -49,13 +49,19 @@ class _DepositBodyState extends State<DepositBody> {
 
   List<Plasticdeposit> pd = [];
 
+  final int each = 20;
+  double _credit;
+
   void _addDeposit() async {
-    final dep_id = "D000X";
+    final dep_id = user;
     final loc = _inputlocation.text;
     final type = _inputtype.text;
     final qty = int.parse(_inputqty.text);
+    final credit = _credit;
+    final stat = "processing";
 
-    final adddeposit = await widget.api.addDeposit(dep_id, loc, type, qty);
+    final adddeposit =
+        await widget.api.addDeposit(dep_id, loc, type, qty, credit, stat);
     setState(() {
       pd.add(adddeposit);
     });
@@ -85,16 +91,16 @@ class _DepositBodyState extends State<DepositBody> {
                   ),
                   // DepositLocation(),
                   Text(
-                    "Find Location\n",
+                    "Deposit plastic bottle\n",
                     style: TextStyle(
-                        fontSize: 20,
+                        fontSize: 23,
                         fontWeight: FontWeight.bold,
                         color: primarycolour),
                   ),
                   Text(
-                    "Please choose the nearest location\n",
+                    "Please weight and sort the bottle before deposit!\n",
                     style: TextStyle(
-                        fontSize: 13,
+                        fontSize: 15,
                         fontStyle: FontStyle.italic,
                         color: primarycolour),
                   ),
@@ -137,6 +143,37 @@ class _DepositBodyState extends State<DepositBody> {
                   SizedBox(
                     height: 10,
                   ),
+                  Text(
+                    "Please refresh for confirmation",
+                    style: TextStyle(
+                        color: primarycolour,
+                        fontSize: 16,
+                        fontStyle: FontStyle.italic),
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      IconButton(
+                          color: primarycolour,
+                          icon: Icon(Icons.refresh_outlined),
+                          onPressed: () {
+                            setState(() {
+                              _credit = double.parse(_inputqty.text);
+                              _credit = _credit * each;
+                            });
+                          }),
+                      Text(
+                        "You have earn Rp. $_credit  for ${_inputtype.text} plastic!!!",
+                        style: TextStyle(
+                            color: darkgreen,
+                            fontSize: 14,
+                            fontStyle: FontStyle.italic),
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: 15,
+                  ),
                   Material(
                     borderRadius: BorderRadius.circular(5.0),
                     color: primarycolour,
@@ -151,15 +188,18 @@ class _DepositBodyState extends State<DepositBody> {
                         style: TextStyle(color: Colors.white, fontSize: 15.0),
                       ),
                       onPressed: () {
+                        _credit = double.parse(_inputqty.text);
+                        _credit = _credit * each;
                         _addDeposit();
-                        showDialog(
-                            context: context,
-                            builder: (context) {
-                              return AlertDialog(
-                                content: Text(
-                                    "INPUT ${_inputlocation.text} and ${_inputtype.text}  ${_inputqty.text} grams"),
-                              );
-                            });
+
+                        // showDialog(
+                        //     context: context,
+                        //     builder: (context) {
+                        //       return AlertDialog(
+                        //         content: Text(
+                        //             "INPUT ${_inputlocation.text} and ${_inputtype.text}  ${_inputqty.text} grams"),
+                        //       );
+                        //     });
                         Navigator.pushNamed(
                             context, ManagementScreen.routeName);
                       },
@@ -168,10 +208,7 @@ class _DepositBodyState extends State<DepositBody> {
                   SizedBox(
                     height: 5,
                   ),
-                  // DepositWeight(),
-                  SizedBox(
-                    height: 5,
-                  ),
+
                   // DepositPlastictype(),
                   // DepositSubmit(),
                   // DepositButtonn(),

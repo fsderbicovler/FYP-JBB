@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:jbb/Admin/adminhome.dart';
+import 'package:jbb/View/Home/home_screen.dart';
 import 'package:jbb/View/Login/jbb_login.dart';
 
 import 'package:jbb/routes.dart';
@@ -11,8 +13,8 @@ void main() {
       primarySwatch: Colors.blueGrey,
       visualDensity: VisualDensity.adaptivePlatformDensity,
     ),
-    initialRoute: LoginScreen.routeName,
-    // home: HomeScreen(),
+    // initialRoute: LoginScreen.routeName,
+    home: AdminHome(),
     routes: routes,
   ));
 }
