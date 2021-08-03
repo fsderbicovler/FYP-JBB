@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:jbb/View/Home/components/Info_title.dart';
+import 'package:jbb/constants.dart';
 
 class HomeInfo extends StatelessWidget {
   HomeInfo({Key key}) : super(key: key);
@@ -7,31 +8,21 @@ class HomeInfo extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Padding(
-          padding: EdgeInsets.symmetric(horizontal: 20),
-          child: InfoTitle(
-            title: "Learn more on Recycling",
-            press: () {},
-          ),
-        ),
-        SizedBox(height: 20),
         SingleChildScrollView(
           scrollDirection: Axis.horizontal,
           child: Row(
             children: [
               //PROBLEMM!!
-              // HomeInfoCard(
-              //   image: "assets/images/sample1.png",
-              //   information: "Recycling Guideline",
-              //   // numOfBrands: 1,
-              //   press: () {},
-              // ),
-              // HomeInfoCard(
-              //   // image: "assets/images/sample1.png",
-              //   information: "Recycling Mobility",
-              //   // numOfBrands: 1,
-              //   press: () {},
-              // ),
+              HomeInfoCard(
+                information: "Recycling Guideline",
+                // numOfBrands: 1,
+                press: () {},
+              ),
+              HomeInfoCard(
+                information: "Recycling Mobility",
+                // numOfBrands: 1,
+                press: () {},
+              ),
               // HomeInfoCard(
               //   image: "assets/images/sample1.png",
               //   information: "Recycled products",
@@ -49,15 +40,11 @@ class HomeInfo extends StatelessWidget {
 
 class HomeInfoCard extends StatelessWidget {
   final String information;
-  final String image;
   // final int numOfinfo;  ADDTIONAL
   final GestureTapCallback press;
 
   const HomeInfoCard(
-      {Key key,
-      @required this.image,
-      @required this.information,
-      @required this.press});
+      {Key key, @required this.information, @required this.press});
 
   @override
   Widget build(BuildContext context) {
@@ -66,31 +53,27 @@ class HomeInfoCard extends StatelessWidget {
       child: GestureDetector(
         onTap: press,
         child: SizedBox(
-          width: 242,
+          width: 300,
           height: 100,
           child: ClipRRect(
-            borderRadius: BorderRadius.circular(20),
+            borderRadius: BorderRadius.circular(15),
             child: Stack(
               children: [
-                Image.asset(
-                  image,
-                  fit: BoxFit.cover,
-                ),
                 Container(
                   decoration: BoxDecoration(
                     gradient: LinearGradient(
-                      begin: Alignment.topCenter,
-                      end: Alignment.bottomCenter,
+                      begin: Alignment.topLeft,
+                      end: Alignment.bottomRight,
                       colors: [
-                        Color(0xFF343434).withOpacity(0.4),
-                        Color(0xFF343434).withOpacity(0.15),
+                        darkgreen.withOpacity(0.7),
+                        lightblue,
                       ],
                     ),
                   ),
                 ),
                 Padding(
                   padding: EdgeInsets.symmetric(
-                    horizontal: 10,
+                    horizontal: 20,
                     vertical: 10,
                   ),
                   child: Text.rich(
@@ -100,11 +83,11 @@ class HomeInfoCard extends StatelessWidget {
                         TextSpan(
                           text: "$information\n",
                           style: TextStyle(
-                            fontSize: 18,
-                            fontWeight: FontWeight.bold,
-                          ),
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                              color: blackblack),
                         ),
-                        TextSpan(text: "Read more")
+                        // TextSpan(text: "Read more")
                         // TextSpan(text: "$numOfBrands Brands")
                       ],
                     ),

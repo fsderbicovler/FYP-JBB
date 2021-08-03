@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 
 class Users {
-  final String id;
+  String id;
   final String username;
   final String password;
   final int type;
+
+  Users(this.username, this.password, this.type);
 
   Users._(this.id, this.username, this.password, this.type);
 

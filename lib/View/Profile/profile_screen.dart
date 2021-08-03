@@ -20,6 +20,7 @@ class ProfileScreen extends StatelessWidget {
 AppBar profileheader(BuildContext context) {
   return AppBar(
     backgroundColor: lightblue,
+    toolbarHeight: 80,
     automaticallyImplyLeading: false,
     // actions: <Widget>[
     //   IconButton(icon: const Icon(Icons.logout), onPressed: null)
@@ -29,14 +30,7 @@ AppBar profileheader(BuildContext context) {
         Text(
           "Profile ",
           style: TextStyle(
-              color: primarycolour, fontSize: 25, fontWeight: FontWeight.bold),
-        ),
-        Text(
-          "Personal collector",
-          style: TextStyle(
-            color: primarycolour,
-            fontSize: 13,
-          ),
+              color: primarycolour, fontSize: 30, fontWeight: FontWeight.bold),
         ),
       ],
     ),

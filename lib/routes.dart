@@ -1,7 +1,6 @@
-import 'dart:js';
-
 import 'package:flutter/widgets.dart';
 import 'package:jbb/Admin/admindeposit.dart';
+import 'package:jbb/Admin/adminhome.dart';
 import 'package:jbb/Admin/adminwithdraw.dart';
 import 'package:jbb/View/Components/landingwithdraw.dart';
 import 'package:jbb/View/Depositt/depositscreen.dart';
@@ -24,14 +23,15 @@ final Map<String, WidgetBuilder> routes = {
   LandingWithdraw.routeName: (context) => LandingWithdraw(),
   WithdrawCheck.routeName: (context) => WithdrawCheck(),
   WithdrawScreen.routeName: (context) => WithdrawScreen(),
-  // DepositScreen.routeName: (context) => DepositScreen(),
   WithdrawHistory.routeName: (context) => WithdrawHistory(),
   FindCollector.routeName: (context) => FindCollector(),
   ManagementScreen.routeName: (context) => ManagementScreen(),
   ProfileScreen.routeName: (context) => ProfileScreen(),
+  DepositScreenn.routeName: (context) => DepositScreenn(),
 
   ///
   ///
   AdminDeposit.routeName: (context) => AdminDeposit(),
-  AdminWithdraw.routeName: (context) => AdminWithdraw()
+  AdminWithdraw.routeName: (context) => AdminWithdraw(),
+  AdminHome.routeName: (context) => AdminHome()
 };

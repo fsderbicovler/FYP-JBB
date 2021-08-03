@@ -16,7 +16,7 @@ class ProfileBody extends StatefulWidget {
 }
 
 class _ProfileBodyState extends State<ProfileBody> {
-  Profile profile;
+  Profile profile = new Profile('', '', '', '', 0);
 
   @override
   void initState() {
@@ -53,25 +53,25 @@ class _ProfileBodyState extends State<ProfileBody> {
             SizedBox(
               height: 5,
             ),
-            ProfileMenu(
-              text: "Change Personal Data",
-              icon: Icon(
-                Icons.edit_rounded,
-                color: darkgreen,
-              ),
-              press: () {},
-            ),
+            // ProfileMenu(
+            //   text: "Change Personal Data",
+            //   icon: Icon(
+            //     Icons.edit_rounded,
+            //     color: darkgreen,
+            //   ),
+            //   press: () {},
+            // ),
             SizedBox(
               height: 5,
             ),
-            ProfileMenu(
-              text: "User Feedback & Report ",
-              icon: Icon(
-                Icons.emoji_people_rounded,
-                color: darkgreen,
-              ),
-              press: () {},
-            ),
+            // ProfileMenu(
+            //   text: "User Feedback & Report ",
+            //   icon: Icon(
+            //     Icons.emoji_people_rounded,
+            //     color: darkgreen,
+            //   ),
+            //   press: () {},
+            // ),
             SizedBox(
               height: 5,
             ),
@@ -79,7 +79,7 @@ class _ProfileBodyState extends State<ProfileBody> {
               text: "Log out profile",
               icon: Icon(
                 Icons.ac_unit,
-                color: darkgreen,
+                color: redblood,
               ),
               press: () {
                 Navigator.pushNamed(context, LoginScreen.routeName);

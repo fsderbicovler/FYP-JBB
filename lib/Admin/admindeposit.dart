@@ -65,29 +65,60 @@ class _AdminDepositBodyState extends State<AdminDepositBody> {
         child: ListView(
           children: [
             ...pdlist
-                .map<Widget>((plasticdeposit) => Card(
-                      child: ListTile(
-                        trailing: IconButton(
-                          icon: Icon(
-                            Icons.delete_forever_rounded,
-                            color: Colors.redAccent,
-                            size: 25,
-                          ),
-                          onPressed: () {},
-                        ),
-                        tileColor: whiteorange,
-                        title: Text(
-                          "Plastic ${plasticdeposit.plastic} earns Rp. ${plasticdeposit.credit}",
-                          style: TextStyle(color: darkgreen, fontSize: 16),
-                        ),
-                        subtitle: Text(
-                          "[${plasticdeposit.status}]${plasticdeposit.quantity}grams deposited at ${plasticdeposit.location} ",
-                          style: TextStyle(
-                              color: darkgreen,
-                              fontSize: 14,
-                              fontStyle: FontStyle.italic),
-                        ),
-                      ),
+                .map<Widget>((plasticdeposit) => Container(
+                      padding: EdgeInsets.only(left: 20, top: 20),
+                      margin: EdgeInsets.only(top: 20),
+                      height: 160,
+                      width: double.infinity,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.all(Radius.circular(10)),
+                          gradient: LinearGradient(
+                              begin: Alignment.topCenter,
+                              end: Alignment.bottomLeft,
+                              colors: [whiteorange, lightorange])),
+                      child: Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "Deposit plastic type : ${plasticdeposit.plastic}",
+                              style: TextStyle(color: darkgreen, fontSize: 18),
+                            ),
+                            Text(
+                              "Weight : ${plasticdeposit.quantity} grams (Rp. ${plasticdeposit.credit}) ",
+                              style: TextStyle(
+                                  color: darkgreen,
+                                  fontSize: 18,
+                                  fontStyle: FontStyle.italic),
+                            ),
+                            Text(
+                              "Deposit location : ${plasticdeposit.location}",
+                              style: TextStyle(color: darkgreen, fontSize: 18),
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                IconButton(
+                                  icon: Icon(
+                                    Icons.check_circle_sharp,
+                                    color: Colors.green,
+                                    size: 35,
+                                  ),
+                                  onPressed: () {},
+                                ),
+                                IconButton(
+                                  icon: Icon(
+                                    Icons.cancel_rounded,
+                                    color: Colors.red,
+                                    size: 35,
+                                  ),
+                                  onPressed: () {
+                                    setState(() {});
+                                  },
+                                ),
+                              ],
+                            )
+                          ]),
                     ))
                 .toList(),
           ],

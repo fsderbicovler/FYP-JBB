@@ -12,35 +12,42 @@ class CollectorList extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListView(
       padding: EdgeInsets.symmetric(horizontal: 20),
-      // itemCount: locationlist.length,
-      // itemBuilder: (context, index) => Column(
-      // width: double.minPositive,
-      // padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 30),
-      // decoration: BoxDecoration(
-      //     color: lightblue, borderRadius: BorderRadius.circular(10)),
-      // child: Column(
-      //   mainAxisAlignment: MainAxisAlignment.start,
-      //   crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         SizedBox(
           height: 10,
         ),
         ...locationlist.map<Widget>((locationlist) => Container(
-            padding: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+            height: 150,
+            margin: EdgeInsets.only(bottom: 15),
+            padding: EdgeInsets.only(left: 30, top: 20),
             decoration: BoxDecoration(
-                color: whiteorange, borderRadius: BorderRadius.circular(10)),
-            child: Text.rich(
-                TextSpan(style: TextStyle(color: darkgreen), children: [
+              gradient: LinearGradient(
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                  colors: [lightorange, whiteorange]),
+              borderRadius: BorderRadius.circular(10),
+            ),
+            child: Text.rich(TextSpan(children: [
               TextSpan(
-                  text: "${locationlist.col_id} ${locationlist.building} \n",
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+                text: "${locationlist.col_id} ${locationlist.building} \n",
+                style: TextStyle(
+                    fontSize: 20,
+                    color: darkgreen,
+                    fontWeight: FontWeight.bold),
+              ),
               TextSpan(
                 text: "${locationlist.address}\n",
-                style: TextStyle(fontSize: 14, fontStyle: FontStyle.italic),
+                style: TextStyle(
+                    fontSize: 16,
+                    color: darkgreen,
+                    fontStyle: FontStyle.italic),
               ),
               TextSpan(
                 text: "available in ${locationlist.area} \n",
-                style: TextStyle(fontSize: 13, fontStyle: FontStyle.italic),
+                style: TextStyle(
+                    fontSize: 15,
+                    fontStyle: FontStyle.italic,
+                    color: blackblack),
               ),
             ])))),
       ],

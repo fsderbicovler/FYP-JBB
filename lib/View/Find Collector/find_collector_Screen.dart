@@ -22,6 +22,7 @@ class FindCollector extends StatelessWidget {
 
   AppBar buildAppBar(BuildContext context) {
     return AppBar(
+      toolbarHeight: 60,
       backgroundColor: lightblue,
       title: Column(
         children: [

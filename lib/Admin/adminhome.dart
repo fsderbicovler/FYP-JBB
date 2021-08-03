@@ -5,6 +5,7 @@ import 'package:jbb/View/Login/jbb_login.dart';
 import 'package:jbb/constants.dart';
 
 class AdminHome extends StatelessWidget {
+  static String routeName = "/adminhome";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,6 +19,7 @@ class AdminHome extends StatelessWidget {
 AppBar withdrawheader(BuildContext context) {
   return AppBar(
     backgroundColor: lightblue,
+    automaticallyImplyLeading: false,
     actions: [
       IconButton(
           icon: Icon(

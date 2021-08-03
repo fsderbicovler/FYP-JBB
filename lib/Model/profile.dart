@@ -12,6 +12,8 @@ class Profile {
   String fullname;
   String addresss;
   double credit;
+  Profile(this._username, this.phonenumber, this.fullname, this.addresss,
+      this.credit);
 
   Profile._(this.id, this._username, this.phonenumber, this.fullname,
       this.addresss, this.credit);

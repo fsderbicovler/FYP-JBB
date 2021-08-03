@@ -11,9 +11,9 @@ class HomeBanner extends StatefulWidget {
 }
 
 class _HomeBannerState extends State<HomeBanner> {
-  Profile profile;
+  Profile profile = new Profile('', '', '', '', 0);
 
-  // @override
+  @override
   void initState() {
     super.initState();
     widget.profileapi.getprofile(user).then((data) {
@@ -34,17 +34,20 @@ class _HomeBannerState extends State<HomeBanner> {
         vertical: 15.0,
       ),
       decoration: BoxDecoration(
-        color: whiteorange,
-        borderRadius: BorderRadius.circular(20),
-      ),
+          borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(10), bottomLeft: Radius.circular(5)),
+          gradient: LinearGradient(
+              begin: Alignment.bottomLeft,
+              end: Alignment.topCenter,
+              colors: [lightorange, lightblue])),
       child: Text.rich(
         TextSpan(
-          style: TextStyle(color: primarycolour),
+          style: TextStyle(color: darkgreen),
           children: [
             TextSpan(
                 text: "Welcome Back, \n\n", style: TextStyle(fontSize: 18)),
             TextSpan(
-              text: "${profile.fullname} (${profile.username})\n",
+              text: profile.fullname + "(" + profile.username + ")\n",
               style: TextStyle(
                 fontSize: 22,
                 fontWeight: FontWeight.bold,

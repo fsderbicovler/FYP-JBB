@@ -25,4 +25,18 @@ class Withdrawal {
       json['nominal'],
     );
   }
+
+  // factory Withdrawal.toJson(String username,String phonenumb, String payment,
+  //     String account, String status, num nominal)
+  Map<dynamic, dynamic> toJson() {
+    return {
+      // "id":id,
+      "username": this.username,
+      "phonenumb": this.phonenumb,
+      "payment": this.payment,
+      "account": this.account,
+      "status": this.status,
+      "nominal": this.nominal
+    };
+  }
 }

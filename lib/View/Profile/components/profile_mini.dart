@@ -15,7 +15,12 @@ class ProfileMini extends StatelessWidget {
       margin: EdgeInsets.all(10),
       padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
       decoration: BoxDecoration(
-          color: whiteorange, borderRadius: BorderRadius.circular(5)),
+          color: whiteorange,
+          borderRadius: BorderRadius.circular(5),
+          gradient: LinearGradient(
+              begin: Alignment.topRight,
+              end: Alignment.bottomRight,
+              colors: [lightblue, lightorange])),
       child: Text.rich(TextSpan(
           style: TextStyle(
             color: darkgreen,

@@ -24,4 +24,17 @@ class WithdrawApi {
         .map<Withdrawal>((json) => Withdrawal.fromJson(json))
         .toList();
   }
+
+  Future<Withdrawal> updatewithdraw(String username, String phonenumb,
+      String payment, String account, String status, int nominal) async {
+    final response = await _withd.put('/$username', data: {
+      'username': username,
+      'phonenumb': phonenumb,
+      'payment': payment,
+      'account': account,
+      'status': status,
+      'nominal': nominal
+    });
+    return Withdrawal.fromJson(response.data);
+  }
 }

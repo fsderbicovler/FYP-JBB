@@ -74,14 +74,14 @@ class _DepositBodyState extends State<DepositBody> {
             padding: EdgeInsets.symmetric(vertical: 20),
             child: Container(
               decoration: BoxDecoration(
-                color: whiteorange,
+                gradient: LinearGradient(
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomCenter,
+                    colors: [lightorange, whiteorange]),
                 borderRadius: BorderRadius.circular(10),
               ),
-              padding: EdgeInsets.symmetric(
-                horizontal: 20.0,
-                vertical: 15.0,
-              ),
-              margin: EdgeInsets.all(8.0),
+              padding: EdgeInsets.all(30),
+              margin: EdgeInsets.all(10.0),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -163,7 +163,7 @@ class _DepositBodyState extends State<DepositBody> {
                             });
                           }),
                       Text(
-                        "You have earn Rp. $_credit  for ${_inputtype.text} plastic!!!",
+                        "You'v earned Rp. $_credit  for ${_inputtype.text} plastic!",
                         style: TextStyle(
                             color: darkgreen,
                             fontSize: 14,

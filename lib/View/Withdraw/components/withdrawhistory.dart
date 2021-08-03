@@ -85,18 +85,54 @@ class HistoryList extends StatelessWidget {
     return ListView(
       children: [
         ...withdrawal
-            .map<Widget>((withdrawal) => Card(
-                  child: ListTile(
-                    tileColor: whiteorange,
-                    title: Text(
-                      "${withdrawal.payment}, Rp. ${withdrawal.nominal} ",
-                      style: TextStyle(color: darkgreen, fontSize: 16),
-                    ),
-                    subtitle: Text(
-                      "acc. number: (${withdrawal.account}) is ${withdrawal.status} ",
-                      style: TextStyle(color: darkgreen, fontSize: 15),
-                    ),
-                  ),
+            .map<Widget>((withdrawal) => Container(
+                  padding: EdgeInsets.all(20),
+                  height: 180,
+                  margin: EdgeInsets.only(top: 20, left: 10),
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(10),
+                          bottomLeft: Radius.circular(5)),
+                      gradient: LinearGradient(
+                          begin: Alignment.topCenter,
+                          end: Alignment.bottomRight,
+                          colors: [lightorange, whiteorange])),
+                  child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "Withdrawal ${withdrawal.payment}\t(${withdrawal.account})",
+                          style: TextStyle(
+                              fontSize: 18, fontWeight: FontWeight.bold),
+                        ),
+                        Text(
+                          "Nominal : Rp. ${withdrawal.nominal}  ",
+                          style: TextStyle(fontSize: 19),
+                        ),
+                        Text(
+                          "withdrawal is ${withdrawal.status} ... ",
+                          style: TextStyle(color: Colors.red, fontSize: 17),
+                        ),
+                        FlatButton(
+                          onPressed: null,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              Icon(
+                                Icons.delete_sharp,
+                                color: redblood,
+                                size: 25,
+                              ),
+                              // Text(
+                              //   "Delete request",
+                              //   style:
+                              //       TextStyle(color: whiteorange, fontSize: 15),
+                              // ),
+                            ],
+                          ),
+                        )
+                      ]),
                 ))
             .toList(),
       ],

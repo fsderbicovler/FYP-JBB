@@ -20,6 +20,7 @@ class ManagementScreen extends StatelessWidget {
   AppBar buildAppBar(BuildContext context) {
     return AppBar(
       backgroundColor: lightblue,
+      automaticallyImplyLeading: false,
       title: Column(
         children: [
           Text(
@@ -28,13 +29,6 @@ class ManagementScreen extends StatelessWidget {
                 color: primarycolour,
                 fontSize: 20,
                 fontWeight: FontWeight.bold),
-          ),
-          Text(
-            "deposits",
-            style: TextStyle(
-              color: primarycolour,
-              fontSize: 11,
-            ),
           ),
         ],
       ),

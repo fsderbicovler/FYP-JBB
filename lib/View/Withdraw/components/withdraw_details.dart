@@ -6,14 +6,17 @@ class WithdrawDetails extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      height: 120, //adjust height
-      margin: EdgeInsets.all(8.0),
+      height: 150, //adjust height
+      margin: EdgeInsets.only(top: 20, left: 10, right: 10, bottom: 30),
       padding: EdgeInsets.symmetric(
         horizontal: 20.0,
         vertical: 15.0,
       ),
       decoration: BoxDecoration(
-        color: whiteorange,
+        gradient: LinearGradient(
+            begin: Alignment.bottomRight,
+            end: Alignment.topCenter,
+            colors: [lightorange, whiteorange]),
         borderRadius: BorderRadius.circular(10),
       ),
       child: Column(
@@ -22,11 +25,11 @@ class WithdrawDetails extends StatelessWidget {
         children: [
           Text.rich(TextSpan(style: TextStyle(color: primarycolour), children: [
             TextSpan(
-              text: "Are you aready earning?\n",
+              text: "Are you aready earning?\n\n",
               style: TextStyle(
-                  fontSize: 25,
-                  fontWeight: FontWeight.bold,
-                  decoration: TextDecoration.none),
+                fontSize: 25,
+                fontWeight: FontWeight.bold,
+              ),
             ),
             TextSpan(
               text: "earning start from Rp. 50.000 ,- \n",

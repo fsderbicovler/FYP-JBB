@@ -21,7 +21,7 @@ class _BankCheckoutState extends State<BankCheckout> {
   final TextEditingController _nominal = TextEditingController();
 
   void _withdraw() async {
-    final username = "farhansd";
+    final username = user;
     final phonenumb = _phonenumb.text;
     final payment = _paymenttype.text;
     final account = _account.text;
@@ -46,7 +46,10 @@ class _BankCheckoutState extends State<BankCheckout> {
         vertical: 15.0,
       ),
       decoration: BoxDecoration(
-        color: whiteorange,
+        gradient: LinearGradient(
+            begin: Alignment.topRight,
+            end: Alignment.bottomCenter,
+            colors: [lightorange, whiteorange]),
         borderRadius: BorderRadius.circular(10),
       ),
       child: Column(
@@ -134,6 +137,7 @@ class _BankCheckoutState extends State<BankCheckout> {
                 contentPadding: EdgeInsets.fromLTRB(5, 10, 5, 10),
                 hintText: "Grab/ GoPay/ Dana",
                 labelText: "withdraw account",
+                labelStyle: inputstyle,
                 hintStyle: TextStyle(
                     color: darkgreen,
                     fontSize: 15.0,

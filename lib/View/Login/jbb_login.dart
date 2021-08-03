@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:jbb/Admin/adminhome.dart';
 import 'package:jbb/Controller/userapi.dart';
 import 'package:jbb/Model/users.dart';
 import 'package:jbb/View/Home/home_screen.dart';
@@ -14,10 +15,11 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  Users users;
+  Users users = new Users('', '', 0);
   final TextEditingController _email = TextEditingController();
   final TextEditingController _password = TextEditingController();
 
+  // final _formkey = GlobalKey<FormState>();
   @override
   void dispose() {
     _email.dispose();
@@ -25,7 +27,7 @@ class _LoginScreenState extends State<LoginScreen> {
     super.dispose();
   }
 
-  void initstate() async {
+  void initstate() {
     super.initState();
     widget.api.getuser(_email.text).then((data) {
       setState(() {
@@ -36,9 +38,21 @@ class _LoginScreenState extends State<LoginScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final emailfield = TextFormField(
+    final emailfield = Form(
+        child: TextFormField(
       controller: _email,
-      style: TextStyle(color: Colors.blue),
+      validator: (value) {
+        if (value.isNotEmpty && value.length > 3) {
+          return null;
+        } else if (value.isNotEmpty && value.length <= 3) {
+          return 'Too short';
+        } else {
+          return 'please enter';
+        }
+      },
+      style: TextStyle(
+        color: blackblack,
+      ),
       decoration: InputDecoration(
         suffixIcon: Icon(Icons.email_rounded, color: darkgreen),
         filled: false,
@@ -50,12 +64,12 @@ class _LoginScreenState extends State<LoginScreen> {
             borderRadius: BorderRadius.circular(5.0),
             borderSide: BorderSide(color: Colors.orange)),
       ),
-    );
+    ));
 
     final passfield = TextFormField(
       controller: _password,
       obscureText: true,
-      style: TextStyle(color: Colors.blue),
+      style: TextStyle(color: blackblack),
       decoration: InputDecoration(
         suffixIcon: Icon(
           Icons.lock_rounded,
@@ -86,6 +100,8 @@ class _LoginScreenState extends State<LoginScreen> {
         onPressed: () {
           if (_email.text == user) {
             Navigator.pushNamed(context, HomeScreen.routeName);
+          } else if (_email.text == admin) {
+            Navigator.pushNamed(context, AdminHome.routeName);
           } else {
             Navigator.pushNamed(context, RpersonalScreen.routeName);
           }
@@ -106,7 +122,12 @@ class _LoginScreenState extends State<LoginScreen> {
     return Scaffold(
       body: Center(
         child: Container(
-          color: lightblue,
+          // color: lightblue,
+          decoration: BoxDecoration(
+              gradient: LinearGradient(
+                  begin: Alignment.topRight,
+                  end: Alignment.bottomLeft,
+                  colors: [darkgreen.withOpacity(0.4), lightorange])),
           child: Padding(
             padding: const EdgeInsets.all(30.0),
             child: Column(

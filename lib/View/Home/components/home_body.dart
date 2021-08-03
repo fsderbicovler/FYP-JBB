@@ -11,14 +11,16 @@ class HomeBody extends StatelessWidget {
       child: SingleChildScrollView(
         child: Column(
           children: <Widget>[
-            //sized box
+            SizedBox(
+              height: 20,
+            ),
             HomeHeader(),
             SizedBox(
               height: 20,
             ),
             HomeBanner(),
             HomeMenu(),
-            HomeInfo(),
+            // HomeInfo(),
           ],
         ),
       ),

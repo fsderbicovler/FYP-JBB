@@ -28,8 +28,8 @@ class DepositApi {
   }
 
   // DELETE
-  // Future deleteMalls(String id) async {
-  //   final response = await _dio.delete('/$id');
+  // Future<Plasticdeposit> deletedeposit(String username) async {
+  //   final response = await _dio.delete('/$username');
   //   return response.data;
   // }
 }

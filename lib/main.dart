@@ -13,8 +13,8 @@ void main() {
       primarySwatch: Colors.blueGrey,
       visualDensity: VisualDensity.adaptivePlatformDensity,
     ),
-    // initialRoute: LoginScreen.routeName,
-    home: AdminHome(),
+    initialRoute: LoginScreen.routeName,
+    // home: AdminHome(),
     routes: routes,
   ));
 }
